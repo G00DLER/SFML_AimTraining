@@ -9,9 +9,9 @@ void Game::initVariables()
 	m_EndGame = false;
 	m_Points = 0;
 	m_Health = 10;
-	m_EnemySpawnTimerMax = 10.f;
+	m_EnemySpawnTimerMax = 15.f;
 	m_EnemySpawnTimer = m_EnemySpawnTimerMax;
-	m_MaxEnemies = 7;
+	m_MaxEnemies = 6;
 	m_MouseHeld = false;
 }
 
@@ -52,7 +52,6 @@ void Game::initText()
 void Game::initEnemies() {
 	m_Enemy.setPosition(10.f, 10.f);
 	m_Enemy.setSize(Vector2f(100.f, 100.f));
-	m_Enemy.setScale(Vector2f(0.5f, 0.5f));
 	m_Enemy.setFillColor(Color::Cyan);
 }
 
@@ -97,12 +96,15 @@ void Game::spawnEnemy() {
 	int random = rand() % 8;
 	if (random == 0) {
 		m_Enemy.setFillColor(Color::Red);
+		m_Enemy.setSize(Vector2f(18.f, 18.f));
 	}
 	else if (random == 1) {
 		m_Enemy.setFillColor(Color::Cyan);
+		m_Enemy.setSize(Vector2f(25.f, 25.f));
 	}
 	else {
 		m_Enemy.setFillColor(Color::Green);
+		m_Enemy.setSize(Vector2f(45.f, 45.f));
 	}
 
 	// Spawn enemies
@@ -179,12 +181,12 @@ void Game::updateEnemies() {
 					// Check color enemies
 					if (m_Enemies[i].getFillColor() == Color::Red)
 					{
-						m_Points += 3;
+						m_Points += 5;
 					}
 
 					if (m_Enemies[i].getFillColor() == Color::Cyan)
 					{
-						m_Points += 2;
+						m_Points += 3;
 					}
 
 					else {
