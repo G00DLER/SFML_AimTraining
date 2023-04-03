@@ -176,9 +176,23 @@ void Game::updateEnemies() {
 				if (m_Enemies[i].getGlobalBounds().contains(m_MousePosView)) {
 					deleted = true;
 
-					m_Enemies.erase(m_Enemies.begin() + i);
+					// Check color enemies
+					if (m_Enemies[i].getFillColor() == Color::Red)
+					{
+						m_Points += 3;
+					}
 
-					m_Points += 1;
+					if (m_Enemies[i].getFillColor() == Color::Cyan)
+					{
+						m_Points += 2;
+					}
+
+					else {
+						m_Points += 1;
+					}
+
+					// Deleting enemies
+					m_Enemies.erase(m_Enemies.begin() + i);
 				}
 			}
 		}
