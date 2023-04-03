@@ -20,7 +20,7 @@ void Game::initWindow()
 	m_videoMode.height = 600;
 	m_videoMode.width = 800;
 
-	m_pWindow = new RenderWindow(m_videoMode, "Game 1", Style::Titlebar | Style::Close);
+	m_pWindow = new RenderWindow(m_videoMode, "AimTraining", Style::Titlebar | Style::Close);
 
 	m_pWindow->setFramerateLimit(60);
 }
